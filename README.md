@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌐 SocialApp
+#  SocialApp
 
 ### A Modern, Feature-Rich Social Media Web Application
 
@@ -15,7 +15,7 @@ Built with **React 18** · **Vite** · **Tailwind CSS**
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 <div align="center">
 
@@ -29,33 +29,33 @@ Built with **React 18** · **Vite** · **Tailwind CSS**
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🏠 Homepage
+###  Homepage
 - **Dynamic Feed** — Create posts with text and image uploads, browse a scrollable feed of content from multiple users.
 - **Interactive Posts** — Like (with toggle animation + persisted count), comment (real comments stored and displayed), and share posts.
 - **Smart Delete** — Only your own posts show the delete button; other users' posts are protected.
 - **Create Post** — Rich post creation box with photo/video upload, tag, location, and feeling options.
 
-### 👤 Profile (Instagram-Inspired)
+###  Profile (Instagram-Inspired)
 - **Profile Header** — Avatar, full name, bio, and link displayed in Instagram's signature horizontal layout.
 - **Stats Bar** — Posts, Followers, and Following counts prominently displayed.
 - **Profile Tabs** — Posts, Saved, and Tagged tab navigation.
 - **3-Column Post Grid** — Square-cropped image grid with hover overlays showing likes and comments.
 - **Edit Profile** — Modern modal to update name, bio, and profile picture with live preview.
 
-### 🔄 Full Persistence
+###  Full Persistence
 - All data is saved to **localStorage** — posts, likes, comments, and profile changes survive page refreshes.
 - Photo uploads are converted to **base64** for reliable persistence without a backend.
 - Profile changes (name, bio, avatar) reflect **globally** across the entire app instantly via React Context.
 
-### 🧭 Navigation & Interactivity
+###  Navigation & Interactivity
 - **Sticky Header** — Glassmorphism navbar with search bar, message/notification dropdowns, and a profile menu.
 - **Sidebar Navigation** — Active route highlighting with React Router integration.
 - **Right Sidebar** — Birthday reminders, sponsored ads, and interactive online friends list.
 - **Follow/Unfollow** — Toggle follow state on suggested users.
 
-### 🎨 Design System
+###  Design System
 - **Typography** — Google Fonts (Inter + Outfit) for a clean, modern look.
 - **Color Palette** — Curated primary blues, soft grays, and white surfaces with consistent tokens.
 - **Micro-Animations** — Smooth hover effects, scale transitions, and interactive feedback throughout.
@@ -63,7 +63,7 @@ Built with **React 18** · **Vite** · **Tailwind CSS**
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Category       | Technology                        |
 | -------------- | --------------------------------- |
@@ -78,7 +78,7 @@ Built with **React 18** · **Vite** · **Tailwind CSS**
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 Social-Media/
@@ -113,7 +113,7 @@ Social-Media/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -145,7 +145,7 @@ npm run preview
 
 ---
 
-## 🔑 Key Architecture Decisions
+##  Key Architecture Decisions
 
 | Decision | Rationale |
 |---|---|
@@ -157,7 +157,7 @@ npm run preview
 
 ---
 
-## 📋 Available Scripts
+##  Available Scripts
 
 | Script           | Description                         |
 | ---------------- | ----------------------------------- |
@@ -168,7 +168,7 @@ npm run preview
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Feel free to open issues and pull requests.
 
@@ -180,7 +180,7 @@ Contributions are welcome! Feel free to open issues and pull requests.
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License.
 
@@ -190,6 +190,5 @@ This project is licensed under the MIT License.
 
 Made with ❤️ by **Ashutosh**
 
-⭐ Star this repo if you found it useful!
 
 </div>
