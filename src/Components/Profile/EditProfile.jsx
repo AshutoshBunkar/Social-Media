@@ -1,120 +1,119 @@
 import React, { useState } from "react";
-import { TiDeleteOutline } from "react-icons/ti";
-const EditProfile = ({ setHandle, handle,Setpage,setShowAlert }) => {
-  // Local state to manage form input values
-  
+import { IoClose } from "react-icons/io5";
+import { fileToBase64 } from "../../utils/storage";
+
+const EditProfile = ({ setHandle, handle, Setpage, setShowAlert }) => {
   const [formValues, setFormValues] = useState({
     image: handle.image || "",
     name: handle.name || "",
     bio: handle.bio || "",
   });
 
-
-
-  // Handle file input and preview
-  const fileHandle = (e) => {
+  // Handle file input with base64 conversion
+  const fileHandle = async (e) => {
     const file = e.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        setFormValues((prevState) => ({
-          ...prevState,
-          image: event.target.result, // Set the base64 image URL for preview
-        }));
-      };
-      reader.readAsDataURL(file);
+      const base64 = await fileToBase64(file);
+      setFormValues((prev) => ({ ...prev, image: base64 }));
     }
   };
 
-  // Handle input changes for name and bio
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormValues((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    setFormValues((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Submit the form and update the parent state
   const handleFormSubmit = (e) => {
-    e.preventDefault(); // Prevent page reload
-    setHandle(formValues); // Update parent state with form values
-    setShowAlert(true); // Show the alert
+    e.preventDefault();
+    setHandle(formValues); // Parent now persists via updateHandle
+    setShowAlert(true);
     setTimeout(() => setShowAlert(false), 3000);
-    Setpage(false)
-   
+    Setpage(false);
   };
-
-  const removePage =()=>{
-    Setpage(false)
-  }
 
   return (
     <form
-  onSubmit={handleFormSubmit} // Call handleFormSubmit on submit
-  className=" border-b-zinc-800 bg-slate-200 w-96 h-auto pt-3 pb-10 px-12 rounded-lg shadow-lg "
->
+      onSubmit={handleFormSubmit}
+      className="bg-white w-full max-w-md rounded-2xl shadow-xl overflow-hidden"
+    >
+      {/* Header */}
+      <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+        <h2 className="text-xl font-bold font-display text-gray-900">Edit Profile</h2>
+        <button
+          type="button"
+          onClick={() => Setpage(false)}
+          className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-500 transition-colors"
+        >
+          <IoClose className="text-xl" />
+        </button>
+      </div>
 
-  <div className="flex justify-end -mr-8 " onClick={removePage}>
-  <TiDeleteOutline className="text-3xl end-4 cursor-pointer"/>
+      <div className="p-6 space-y-6">
+        {/* Profile Picture */}
+        <div className="flex items-center gap-5">
+          <img
+            className="w-20 h-20 rounded-full object-cover border-2 border-gray-100 shrink-0"
+            src={formValues.image || "/images/s1.png"}
+            alt="profile"
+          />
+          <div className="flex flex-col gap-1">
+            <label className="text-primary-600 font-semibold text-sm cursor-pointer hover:underline">
+              Change Photo
+              <input
+                type="file"
+                accept="image/*"
+                onChange={fileHandle}
+                className="hidden"
+              />
+            </label>
+            <span className="text-xs text-gray-400">JPG, PNG. Max 5MB.</span>
+          </div>
+        </div>
 
-  </div>
-  <center className="text-3xl font-semibold text-gray-800 mb-6">Edit Profile</center>
-  
-  <div className="main">
-    {/* Profile Picture */}
-    <div className="profilePic flex items-center mt-6">
-      <img
-        className="w-20 h-20 rounded-full object-cover mr-4 border-4 "
-        src={formValues.image || "https://via.placeholder.com/150"}
-        alt="profile"
-      />
-      <input
-        type="file"
-        accept="image/*"
-        onChange={fileHandle}
-        className="p-2 text-white rounded-md cursor-pointer transition-all duration-300"
-      />
-    </div>
+        {/* Name Input */}
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-1.5">Name</label>
+          <input
+            className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-300 transition-all"
+            type="text"
+            name="name"
+            placeholder="Enter your name"
+            value={formValues.name}
+            onChange={handleInputChange}
+          />
+        </div>
 
-    {/* Name Input */}
-    <div className="userName flex items-center mt-8 space-x-4">
-      <span className="w-16 text-gray-700 font-medium">Name</span>
-      <input
-        className="p-3 w-full border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
-        type="text"
-        name="name"
-        placeholder="Enter name"
-        value={formValues.name}
-        onChange={handleInputChange}
-      />
-    </div>
+        {/* Bio Input */}
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-1.5">Bio</label>
+          <textarea
+            className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-300 transition-all resize-none"
+            name="bio"
+            placeholder="Tell us about yourself"
+            rows={3}
+            value={formValues.bio}
+            onChange={handleInputChange}
+          />
+        </div>
+      </div>
 
-    {/* Bio Input */}
-    <div className="bio flex items-center mt-6 space-x-4">
-      <span className="w-16 text-gray-700 font-medium">Bio</span>
-      <input
-        type="text"
-        className="p-3 w-full border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2  transition-all duration-300"
-        name="bio"
-        placeholder="Enter bio"
-        value={formValues.bio}
-        onChange={handleInputChange}
-      />
-    </div>
-
-    {/* Submit Button */}
-    <div className="flex justify-center mt-8">
-      <button
-        type="submit"
-        className="w-full py-3 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 hover:shadow-lg transition-all duration-300"
-      >
-        Submit
-      </button>
-    </div>
-  </div>
-</form>
-
+      {/* Footer */}
+      <div className="flex justify-end gap-3 px-6 py-4 border-t border-gray-100 bg-gray-50">
+        <button
+          type="button"
+          onClick={() => Setpage(false)}
+          className="px-5 py-2 text-sm font-semibold text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          className="px-5 py-2 text-sm font-semibold text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition-colors shadow-sm"
+        >
+          Save Changes
+        </button>
+      </div>
+    </form>
   );
 };
 

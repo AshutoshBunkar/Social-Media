@@ -2,30 +2,31 @@ import Header from "../Header/Header";
 import Sidebar from "../SIdebar/Sidebar";
 import Feed from "../Feed/Feed";
 import Rightbar from "../Rightbar/Rightbar";
-import Profile from "../Profile/Profile";
-import { useState } from "react";
+import Footer from "../Footer/Footer";
 
 export default function Home() {
   return (
-    // <div className={`main-content transition-all ${isMode ? " absolute blur-md pointer-events-none" : ""}`}>
-      <div >
-      <Header></Header>
-      <div className="flex ">
-        <div className="sidebar basis-1/4 mt-12">
-          <Sidebar></Sidebar>
+    <div className="bg-background-light min-h-screen flex flex-col">
+      <Header />
+
+      <div className="flex w-full max-w-[1600px] mx-auto justify-center flex-1">
+        {/* Left Sidebar - Hidden on smaller screens */}
+        <div className="hidden lg:block w-[280px] xl:w-[320px] shrink-0">
+          <Sidebar />
         </div>
-        <div className=" basis-3/4  ">
-          <Profile  />
-          <div className="flex">
-            <div className="feed  mt-12">
-              <Feed></Feed>
-            </div>
-            <div className="rightbar  mt-12">
-              <Rightbar></Rightbar>
-            </div>
-          </div>
+
+        {/* Main Feed */}
+        <div className="flex-1 w-full max-w-3xl">
+          <Feed />
+        </div>
+
+        {/* Right Sidebar - Hidden on md screens */}
+        <div className="hidden md:block w-[300px] xl:w-[350px] shrink-0">
+          <Rightbar />
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

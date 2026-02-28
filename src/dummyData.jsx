@@ -1,64 +1,63 @@
 export const Users = [
-  
   {
-    id:1,
+    id: 1,
     profilePicture: "/images/p1.png",
     username: "Safak Kocaoglu",
-    userId:"@safakkk",
+    userId: "@safakkk",
   },
   {
-    id:2,
-    profilePicture: "/images/p2.jpg",
+    id: 2,
+    profilePicture: "/images/p2.png",
     username: "Janell Shrum",
-    userId:"@jenell_shrum",
+    userId: "@jenell_shrum",
   },
   {
-    id:3,
-    profilePicture: "/images/u3.jpg",
+    id: 3,
+    profilePicture: "/images/u3.png",
     username: "Alex Durden",
-    userId:"@alex123",
+    userId: "@alex123",
   },
   {
-    id:4,
-    profilePicture: "/images/u4.jpg",
+    id: 4,
+    profilePicture: "/images/u4.png",
     username: "Dora Hawks",
-    userId:"@hawks.14",
+    userId: "@hawks.14",
   },
   {
-    id:5,
-    profilePicture: "/images/u5.jpg",
+    id: 5,
+    profilePicture: "/images/u5.png",
     username: "Thomas Holden",
-    userId:"@thomasxxx",
+    userId: "@thomasxxx",
   },
   {
-    id:6,
-    profilePicture: "/images/u6.jpg",
+    id: 6,
+    profilePicture: "/images/u6.png",
     username: "Shirley Beauchamp",
-    userId:"@shirley__b",
+    userId: "@shirley__b",
   },
   {
-    id:7,
-    profilePicture: "/images/u7.jpg",
+    id: 7,
+    profilePicture: "/images/u7.png",
     username: "Travis Bennett",
-    userId:"@travis",
+    userId: "@travis",
   },
   {
-    id:8,
-    profilePicture: "/images/u8.jpg",
+    id: 8,
+    profilePicture: "/images/u8.png",
     username: "Kristen Thomas",
-    userId:"@kristen_thomas",
+    userId: "@kristen_thomas",
   },
   {
-    id:9,
-    profilePicture: "/images/u9.jpg",
+    id: 9,
+    profilePicture: "/images/u9.png",
     username: "Gary Duty",
-    userId:"@gary.d07",
+    userId: "@gary.d07",
   },
   {
-    id:10,
-    profilePicture: "/images/s1.jpg",
-    username: "Kunal Bunnkar",
-    userId:"@kunalbunkar1987",
+    id: 10,
+    profilePicture: "/images/s1.png",
+    username: "Ashutosh Bunkar",
+    userId: "@ashutoshbunkar",
   },
 ];
 
@@ -66,7 +65,7 @@ export const Posts = [
   {
     id: 1,
     desc: "Love For All, Hatred For None.",
-    photo: "/images/p1.jpg",
+    photo: "/images/post1.png",
     date: "5 mins ago",
     userId: 1,
     like: 32,
@@ -74,7 +73,7 @@ export const Posts = [
   },
   {
     id: 2,
-    photo: "/images/p2.jpg",
+    photo: "/images/post2.png",
     date: "15 mins ago",
     userId: 2,
     like: 2,
@@ -83,7 +82,7 @@ export const Posts = [
   {
     id: 3,
     desc: "Every moment is a fresh beginning.",
-    photo: "/images/p3.jpg",
+    photo: "/images/post3.png",
     date: "1 hour ago",
     userId: 3,
     like: 61,
@@ -91,7 +90,7 @@ export const Posts = [
   },
   {
     id: 4,
-    photo: "/images/p4.jpg",
+    photo: "/images/post4.png",
     date: "4 hours ago",
     userId: 4,
     like: 7,
@@ -99,7 +98,7 @@ export const Posts = [
   },
   {
     id: 5,
-    photo: "/images/p5.jpg",
+    photo: "/images/post5.png",
     date: "5 hours ago",
     userId: 5,
     like: 23,
@@ -107,26 +106,25 @@ export const Posts = [
   },
   {
     id: 6,
-    photo: "/images/p6.jpg",
+    photo: "/images/post6.png",
     date: "1 day ago",
     userId: 6,
     like: 44,
     comment: 6,
   },
- 
 ];
 
 export const Adimg = [
   {
     id: 1,
-    img: "images/Adimg/Ad.jpeg",
+    img: "/images/Adimg/Ad1.png",
   },
   {
     id: 2,
-    img: "images/Adimg/Ad1.jpg",
+    img: "https://picsum.photos/seed/smartwatch/400/300",
   },
   {
     id: 3,
-    img: "images/Adimg/Ad2.jpg",
+    img: "https://picsum.photos/seed/coffeead/400/300",
   },
-]
+];

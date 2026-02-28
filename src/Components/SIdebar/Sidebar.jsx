@@ -1,74 +1,74 @@
-import React, { useState, useEffect } from "react";
-import { MdRssFeed } from "react-icons/md";
+import React, { useState } from "react";
+import { MdRssFeed, MdSlowMotionVideo, MdEventNote } from "react-icons/md";
 import { IoIosChatbubbles } from "react-icons/io";
-import { MdSlowMotionVideo } from "react-icons/md";
 import { FaUserGroup, FaRegBookmark } from "react-icons/fa6";
 import { PiBagSimple } from "react-icons/pi";
-import { MdEventNote } from "react-icons/md";
 import { GoQuestion } from "react-icons/go";
 import { Users } from "../../dummyData";
 import CloseFriends from "./CloseFriends";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
-  const [dropdown, setDropdown] = useState(false)
+  const [dropdown, setDropdown] = useState(false);
 
   const dropdownHandle = () => {
     setDropdown(!dropdown);
-  }
-  
+  };
+
+  // Mocking paths for functionality demonstration
+  const menuItems = [
+    { icon: <MdRssFeed className="text-xl" />, text: "Feed", path: "/" },
+    { icon: <IoIosChatbubbles className="text-xl" />, text: "Chats", path: "/chats" },
+    { icon: <MdSlowMotionVideo className="text-xl" />, text: "Videos", path: "/videos" },
+    { icon: <FaUserGroup className="text-xl" />, text: "Groups", path: "/groups" },
+    { icon: <FaRegBookmark className="text-xl" />, text: "Bookmarks", path: "/bookmarks" },
+    { icon: <PiBagSimple className="text-xl" />, text: "Jobs", path: "/jobs" },
+    { icon: <MdEventNote className="text-xl" />, text: "Events", path: "/events" },
+    { icon: <GoQuestion className="text-xl" />, text: "Questions", path: "/questions" },
+  ];
 
   return (
-    <div className="fixed z-0 w-1/4 mt-5 p-8 h-[90vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300">
-      <ul className="sideBar_style">
-        <li className="flex h-8 items-center hover:bg-slate-100 cursor-pointer rounded-md ">
-          <MdRssFeed className="text-2xl " />
-          <span className="text-lg ml-5">Feed</span>
-        </li>
-        <li className="flex mt-5  h-8 items-center hover:bg-slate-100 cursor-pointer rounded-md ">
-          <IoIosChatbubbles className="text-2xl" />
-          <span className="text-lg ml-5">Chats</span>
-        </li>
-        <li className="flex mt-5  h-8 items-center hover:bg-slate-100 cursor-pointer rounded-md ">
-          <MdSlowMotionVideo className="text-2xl" />
-          <span className="text-lg ml-5">Videos</span>
-        </li>
-        <li className="flex mt-5  h-8 items-center hover:bg-slate-100 cursor-pointer rounded-md ">
-          <FaUserGroup className="text-2xl" />
-          <span className="text-lg ml-5">Groups</span>
-        </li>
-        <li className="flex mt-5  h-8 items-center hover:bg-slate-100 cursor-pointer rounded-md ">
-          <FaRegBookmark className="text-2xl" />
-          <span className="text-lg ml-5">Bookmarks</span>
-        </li>
-        <li className="flex mt-5  h-8 items-center hover:bg-slate-100 cursor-pointer rounded-md ">
-          <PiBagSimple className="text-2xl" />
-          <span className="text-lg ml-5">Job</span>
-        </li>
-        <li className="flex mt-5  h-8 items-center hover:bg-slate-100 cursor-pointer rounded-md  ">
-          <MdEventNote className="text-2xl" />
-          <span className="text-lg ml-5">Event</span>
-        </li>
-        <li className="flex mt-5  h-8 items-center hover:bg-slate-100 cursor-pointer rounded-md ">
-          <GoQuestion className="text-2xl" />
-          <span className="text-lg ml-5">Question</span>
-        </li>
+    <div className="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto px-6 py-8 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+      <ul className="space-y-2 mb-8 border-b border-gray-100 pb-8">
+        {menuItems.map((item, index) => (
+          <li key={index}>
+            <NavLink
+              to={item.path}
+              className={({ isActive }) =>
+                `flex items-center gap-4 px-4 py-3 rounded-xl cursor-pointer transition-all font-medium group ${isActive
+                  ? "bg-primary-50 text-primary-700 font-bold"
+                  : "text-gray-700 hover:bg-gray-50 hover:text-primary-600"
+                }`
+              }
+            >
+              <div className="text-gray-500 group-hover:text-primary-500 transition-colors">
+                {item.icon}
+              </div>
+              <span>{item.text}</span>
+            </NavLink>
+          </li>
+        ))}
       </ul>
+
       <button
-        type="submit"
-        className=" w-full mt-4 mb-4 px-4 py-2 bg-slate-300 hover:bg-slate-400 hover:text-white rounded-md shadow-md transition-all duration-300"  onClick={dropdownHandle}
+        type="button"
+        className="w-full mb-6 px-4 py-3 font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-xl transition-colors flex justify-center items-center"
+        onClick={dropdownHandle}
       >
-        Followers
+        {dropdown ? "Hide Suggestions" : "Show Suggestions"}
       </button>
-      <hr className="border-t-2 border-gray-700 my-4" />
-      <div className="ShowMore"  >
-        <ul className="" >
-          {dropdown && (
-            
-            Users.map((u) => (
-              <CloseFriends key={u.id} user={u} />
-            ))
-          )}
-        </ul>
+
+      <div className="ShowMore">
+        {dropdown && (
+          <div className="space-y-4">
+            <h4 className="font-semibold text-gray-500 text-sm uppercase tracking-wider mb-4 px-2">People you may know</h4>
+            <ul>
+              {Users.slice(0, 5).map((u) => (
+                <CloseFriends key={u.id} user={u} />
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );
