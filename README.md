@@ -170,7 +170,8 @@ npm run preview
 
 ##  Contributing
 
-Contributions are welcome! Feel free to open issues and pull requests.
+Contributions are welcome!
+Feel free to open issues and pull requests.
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
