@@ -37,7 +37,7 @@ Built with **React 18** · **Vite** · **Tailwind CSS**
 - **Smart Delete** — Only your own posts show the delete button; other users' posts are protected.
 - **Create Post** — Rich post creation box with photo/video upload, tag, location, and feeling options.
 
-###  Profile (Instagram-Inspired)
+###  Profile
 - **Profile Header** — Avatar, full name, bio, and link displayed in Instagram's signature horizontal layout.
 - **Stats Bar** — Posts, Followers, and Following counts prominently displayed.
 - **Profile Tabs** — Posts, Saved, and Tagged tab navigation.
