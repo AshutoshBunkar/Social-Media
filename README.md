@@ -48,6 +48,7 @@ Built with **React 18** · **Vite** · **Tailwind CSS**
 - All data is saved to **localStorage** — posts, likes, comments, and profile changes survive page refreshes.
 - Photo uploads are converted to **base64** for reliable persistence without a backend.
 - Profile changes (name, bio, avatar) reflect **globally** across the entire app instantly via React Context.
+- Core functionality continues to work seamlessly even after browser refreshes or temporary network interruptions.
 
 ###  Navigation & Interactivity
 - **Sticky Header** — Glassmorphism navbar with search bar, message/notification dropdowns, and a profile menu.
